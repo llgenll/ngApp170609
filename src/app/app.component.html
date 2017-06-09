@@ -1,3 +1,17 @@
 <h1>
   {{title}}
 </h1>
+
+<form name="mainForm" action="">
+<label for="textInput">数値を入力：</label><input type="number" name="textInput" id="textInput" value="" [(ngModel)]="value">
+</form>
+
+<table>
+	<tr>
+		<th>{{key}}</th>
+		<td>{{value*5}}</td>
+	</tr>
+	<tr *ngFor="let v of dataArray; let i=index">
+		<td colspan="2">{{i+1}}番目の値は{{v}}</td>
+	</tr>
+</table>

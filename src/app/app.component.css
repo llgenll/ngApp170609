@@ -1,0 +1,14 @@
+h1 {
+	color: #303030;
+}
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+th {
+	background: #ccc;
+}
+th, td {
+	border: 1px solid #000000;
+	padding: .3em .5em;
+}

@@ -1,17 +1,61 @@
 <h1>
+	<!-- 片方向データバインド -->
   {{title}}
 </h1>
 
+<div>
+	<h2>sample00</h2>
+	<!-- 繰り返し -->
+	<ul>
+		<li *ngFor="let v of dataArray; let i=index">{{i+1}}番目の値は{{v}}</li>
+	</ul>
+</div>
+
 <form name="mainForm" action="">
-<label for="textInput">数値を入力：</label><input type="number" name="textInput" id="textInput" value="" [(ngModel)]="value">
+	<!-- 双片方向データバインド -->
+	<div class="sample01">
+		<h2>sample01</h2>
+		<!-- 入力値がsample01Valueになる -->
+		<label for="sample01">数値を入力：</label><input type="number" name="sample01" id="sample01" value="0" [(ngModel)]="sample01Value"><br>
+		<!-- sample01Valueの5倍が表示される -->
+		<span>数値の5倍：{{sample01Value*5}}</span>
+	</div>
+	<div class="sample02">
+		<h2>sample02</h2>
+		<!-- チェックボックスをチェックするとsample02Valueがtrueになる -->
+		<input type="checkbox" name="sample02Switch" id="sample02Switch" value="false" [(ngModel)]="sample02Value">
+		<!-- sample02Valueがtrueならボタンが表示される -->
+		<button *ngIf="sample02Value">ボタン</button>
+	</div>
+	<div class="sample03">
+		<h2>sample03</h2>
+		<!-- Selectを変更すると選択したvalueがsample03Valueになる -->
+		<select name="sample03Select" id="sample03Select" [(ngModel)]="sample03Value">
+			<option value="apple">リンゴ</option>
+			<option value="orange">ミカン</option>
+			<option value="banana">バナナ</option>
+		</select>
+		<!-- sample03Valueによって表示・非表示が変わる -->
+		<div [ngSwitch]="sample03Value">
+			<div *ngSwitchCase="'apple'">リンゴ</div>
+			<div *ngSwitchCase="'orange'">ミカン</div>
+			<div *ngSwitchCase="'banana'">バナナ</div>
+		</div>
+	</div>
 </form>
 
-<table>
-	<tr>
-		<th>{{key}}</th>
-		<td>{{value*5}}</td>
-	</tr>
-	<tr *ngFor="let v of dataArray; let i=index">
-		<td colspan="2">{{i+1}}番目の値は{{v}}</td>
-	</tr>
-</table>
+<div class="sample04">
+	<h2>sample04</h2>
+	<!-- プロパティを設定する。独自のプロパティはattrを使う -->
+	<a [href]="sample04Value" [attr.orighref]="sample04Value" target="_blank">{{sample04Value}}</a><br>
+	<!-- sample04Flagがtrueならクラスを設定する -->
+	<p [class.sample04Red]="sample04Flag">sample04Red</p>
+	<!-- sample04Classesの、valueがtrueのkeyの名称のクラス（複数可）を設定する -->
+	<p [ngClass]="sample04Classes">sample04Green &amp; sample04Large</p>
+	<!-- style属性を指定する。 -->
+	<p [style.font-family]="sample04Font">sample04Font = MS Gothic</p>
+	<!-- style属性を複数指定する。 -->
+	<p [ngStyle]="sample04Stiles">sample04Stiles</p>
+</div>
+
+<!-- div.sample04>h2{sample04} -->

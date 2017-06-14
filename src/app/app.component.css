@@ -1,3 +1,5 @@
+/*スタイルシート*/
+@charset "utf-8";
 h1 {
 	color: #303030;
 }
@@ -11,4 +13,13 @@ th {
 th, td {
 	border: 1px solid #000000;
 	padding: .3em .5em;
+}
+.sample04Red {
+	color: red;
+}
+.sample04Green {
+	color: green;
+}
+.sample04Large {
+	font-size: 2em;
 }

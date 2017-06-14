@@ -6,12 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'こんにちは！';
-	key = '数値の5倍';
-	value = 0;
+  title = 'Angular App Sample';
+	sample01Value = 0;
+	sample02Value = false;
+	sample03Value = 'apple';
+	sample04Value = 'http://www.dunksoft.com/';
+	sample04Flag = true;
+	sample04Classes = {
+		sample04Red:false,
+		sample04Green:true,
+		sample04Large:true
+	};
+	sample04Font = 'MS Gothic';
+	sample04Stiles = {
+		'font-family':'Arial',
+		'font-weight':'bolder',
+		'text-indent':'1em'
+	};
 	dataArray = [
-		'1a', '2b', '3c', '4d', '5e', '6f', '7g', '8h', '9i', '10j',
-		'11k', '12l', '13m', '14n', '15o', '16p', '17q', '18r', '19s', '20t',
-		'21u', '22v', '23w', '24x', '25y', '26z'
+		'1a', '2b', '3c', '4d', '5e'
 	];
 }
